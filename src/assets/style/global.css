@@ -1,0 +1,66 @@
+/*
+ |--------------------------------------------------
+ | 标签重定义
+ |--------------------------------------------------
+*/
+
+body {
+  background-color: #fff;
+  color: #4d4e53;
+}
+
+body,
+input,
+textarea,
+keygen,
+select,
+button {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+
+/*
+ |--------------------------------------------------
+ | 自定义类
+ |--------------------------------------------------
+*/
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px
+}
+
+.container:before,
+.container:after {
+  content: " ";
+  display: table
+}
+
+.container:after {
+  clear: both
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px
+  }
+}
+
+.wrap {
+    padding-bottom: 30px;
+    position: relative;
+}
