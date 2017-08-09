@@ -2,9 +2,14 @@ import axios from 'axios';
 import env from '../config/env';
 
 let util = {};
-util.title = function (title) {
-  title                 = title ? title + ' - 永安运用' : '永安运用';
-  window.document.title = title;
+
+/**
+ * 生成网页的标题
+ * @param {Object} to 即将要进入的目标路由对象
+ */
+util.title = function (to) {
+  let title                 = to.matched ? to.matched[0].name + ' - 永安运用' : '永安运用';
+      window.document.title = title;
 };
 
 const ajaxUrl =

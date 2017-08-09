@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -12,7 +13,8 @@ fs.open('./src/config/env.js', 'w', function (err, fd) {
 
 module.exports = merge(webpackBaseConfig, {
   output: {
-    publicPath   : '/dist/',
+    path         : path.resolve(__dirname, './dist'),
+    publicPath   : '/new/', // 生产版的发布目录
     filename     : '[name].[hash].js',
     chunkFilename: '[name].[hash].chunk.js'
   },
@@ -36,7 +38,7 @@ module.exports = merge(webpackBaseConfig, {
       }
     }),
     new HtmlWebpackPlugin({
-      filename: '../index_prod.html',
+      filename: path.resolve(__dirname, './dist/index.html'),
       template: './src/template/index.ejs',
       inject  : false
     })

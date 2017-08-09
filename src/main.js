@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
    * @param {Function} next 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。
    */
   iView.LoadingBar.start();
-  Util.title(to.meta.title);
+  Util.title(to);
   next();
 });
 

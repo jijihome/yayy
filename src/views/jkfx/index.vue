@@ -57,8 +57,8 @@ export default {
     path: ''
   },
   created() {
-    console.log(this.$router) // eslint-disable-line
-    this.$router.push('/jkfx/total');
+    // console.log(this.$router) // eslint-disable-line
+    this.$router.push('/jkfx/total'); // 默认跳转到：分析日统计
   },
   methods: {
     onSelect(name) {
