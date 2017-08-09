@@ -6,13 +6,13 @@
 
 nav:after,
 .layout-copy:before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 1px;
+  content   : "";
+  display   : block;
+  width     : 100%;
+  height    : 1px;
   background: #dddee1;
-  bottom: 0;
-  left: 0;
+  bottom    : 0;
+  left      : 0;
   margin-top: -1px;
 }
 
@@ -22,17 +22,17 @@ nav:after,
 }
 
 .layout-logo {
-  width: 100px;
-  height: 30px;
   /* background   : #5b6270; */
+  width        : 100px;
+  height       : 30px;
   border-radius: 3px;
-  float: left;
-  position: relative;
-  top: 15px;
-  left: 20px;
-  z-index: 999;
-  font-size: 22px;
-  color: #5b6270;
+  float        : left;
+  position     : relative;
+  top          : 15px;
+  left         : 20px;
+  z-index      : 999;
+  font-size    : 22px;
+  color        : #5b6270;
 }
 
 nav .ivu-menu.ivu-menu-horizontal {
@@ -40,7 +40,7 @@ nav .ivu-menu.ivu-menu-horizontal {
 }
 
 .layout-assistant {
-  width: 300px;
+  width : 300px;
   margin: 0 auto;
   height: inherit;
 }
@@ -59,7 +59,7 @@ nav .ivu-menu.ivu-menu-horizontal {
 
 .layout-content .nav {
   position: fixed;
-  height: 100%;
+  height  : 100%;
 }
 
 nav .ivu-menu-item>i {
@@ -68,14 +68,14 @@ nav .ivu-menu-item>i {
 
 .layout-copy {
   margin-bottom: 20px;
-  margin-top  : 1px;
+  margin-top   : 1px;
   color        : #9ea7b4;
   font-size    : 14px;
 }
 
 .layout-copy .ivu-row {
   margin: 20px;
-  color: #9e9e9e;
+  color : #9e9e9e;
 }
 
 .layout-copy .copyright {
@@ -83,12 +83,12 @@ nav .ivu-menu-item>i {
 }
 
 .layout-copy .copyright strong {
-  color: #4d4e53;
+  color      : #4d4e53;
   font-weight: 400;
 }
 
 .layout-copy .icon li {
-  display: inline-block;
+  display     : inline-block;
   margin-right: 10px;
 }
 
@@ -111,11 +111,11 @@ nav .ivu-menu-item>i {
         </Menu>
       </div>
     </nav>
-
+  
     <div class="layout-content-main">
       <router-view :path="path"></router-view>
     </div>
-
+  
     <div class="layout-copy">
       <Row>
         <Col span="16">
@@ -144,21 +144,22 @@ nav .ivu-menu-item>i {
         </Col>
       </Row>
     </div>
+    <Back-top></Back-top>
   </div>
 </template>
 
 
 <script>
-import './assets/style/reset.css'
-import './assets/style/iview-fixed.css'
-import './assets/style/global.css'
+import './assets/style/reset.css' // 全局样式从定义
+import './assets/style/iview-fixed.css' // iView 样式重定义
+import './assets/style/global.css' // 自定义样式
 
 
 export default {
   data() {
     return {
-      path: '', // 当前路由的路径
-      root: '' // 当前路由的根目录
+      path: '',   // 当前路由的路径
+      root: ''    // 当前路由的根目录
     };
   },
   created() {
@@ -171,13 +172,22 @@ export default {
 
   },
   watch: {
-    '$route': function (to, from) { // eslint-disable-line no-unused-vars
+    /**
+     * 监视路由
+     * @param {Route} to   即将要进入的目标路由对象
+     * @param {Route} from 当前导航正要离开的路由对象
+     */
+    '$route'(to) {
       this.path = to.path;
       this.root = to.path === '/' ? '/' : to.matched[0].path;
       document.querySelector('.layout-copy').style.display = this.path === '/' ? 'block' : 'none'; // 如果是首页显示页脚（否则隐藏）
     }
   },
   methods: {
+    /**
+     * 导航菜单项目被选择（点击）
+     * @param {String} name 菜单项目的 name 属性
+     */
     onSelect(name) {
       if (name === this.root) { // 如果点击的是当前已选择导航菜单项目则不做跳转
         return;

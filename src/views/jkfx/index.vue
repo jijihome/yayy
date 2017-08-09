@@ -2,12 +2,12 @@
 .layout-content .nav {
   position: fixed;
   height  : 100%;
-  z-index : 999;
+  z-index : 1;
 }
 
 .layout-content .right-side {
   margin-left: 180px;
-  padding    : 10px;
+  padding    : 20px;
 }
 </style>
 
